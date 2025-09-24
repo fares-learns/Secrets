@@ -1,0 +1,333 @@
+/* styles.css
+    Dark Navy-themed color system and common components
+*/
+
+/* Updated Color palette (darker navy shades + accents) */
+:root {
+    --navy-950: #020814;
+    /* deepest navy - almost black */
+    --navy-900: #031027;
+    /* very dark navy */
+    --navy-850: #041a2e;
+    /* darker navy */
+    --navy-800: #06263f;
+    --navy-700: #073a57;
+    --navy-600: #0b4f6f;
+    --navy-500: #11658b;
+    /* primary */
+    --navy-400: #2a82a3;
+    --navy-300: #5aa6c6;
+    --accent: #ffd166;
+    /* warm contrast (gold) */
+    --accent-blue: #64b5f6;
+    /* cool blue accent */
+    --muted: #94a3b8;
+    /* more muted text */
+    --muted-light: #cbd5e1;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.05);
+    --shadow: 0 8px 25px rgba(2, 8, 20, 0.6);
+    --radius: 12px;
+    --max-width: 1100px;
+    --fw-regular: 400;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --transition: 200ms ease;
+}
+
+/* Reset & base */
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+/* Dark navy body with improved gradient */
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 25%, var(--navy-850) 50%, var(--navy-900) 75%, var(--navy-950) 100%);
+    background-attachment: fixed;
+    color: var(--muted);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main wrapper for content */
+.main-wrapper {
+    flex: 1;
+    padding: 24px;
+}
+
+/* Layout container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Hero Section - Improved */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding: 48px 32px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-height: 50vh;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+    border-radius: var(--radius);
+    pointer-events: none;
+}
+
+.hero h1 {
+    margin: 0 0 16px 0;
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: var(--fw-bold);
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    margin: 0 auto 32px auto;
+    color: var(--muted-light);
+    font-size: 1.1rem;
+    max-width: 50ch;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card - Enhanced */
+.card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow:
+        0 20px 40px rgba(2, 8, 20, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--navy-400), var(--accent-blue));
+    opacity: 0.6;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 25px 50px rgba(2, 8, 20, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Form elements - Much improved */
+.input,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    outline: none;
+    transition: all var(--transition);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.input:focus,
+textarea:focus {
+    box-shadow:
+        0 0 0 3px rgba(100, 181, 246, 0.2),
+        0 8px 25px rgba(100, 181, 246, 0.15);
+    border-color: var(--accent-blue);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+}
+
+.input::placeholder,
+textarea::placeholder {
+    color: rgba(148, 163, 184, 0.6);
+}
+
+/* Labels - Enhanced */
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--muted-light);
+    font-weight: var(--fw-semibold);
+    font-size: 0.95rem;
+    letter-spacing: 0.025em;
+}
+
+/* Buttons - Much improved */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-weight: var(--fw-semibold);
+    font-size: 1rem;
+    transition: all var(--transition);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue), var(--navy-500));
+    color: var(--white);
+    box-shadow:
+        0 10px 25px rgba(100, 181, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(100, 181, 246, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 15px 35px rgba(100, 181, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--muted-light);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer - Enhanced */
+.footer {
+    margin-top: auto;
+    padding: 24px;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(10px);
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* Utility helpers */
+.lead {
+    font-size: 1.1rem;
+    color: var(--muted-light);
+    margin: 0 auto 32px auto;
+    max-width: 55ch;
+    line-height: 1.6;
+}
+
+.center {
+    text-align: center
+}
+
+.small {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* Form specific styles */
+.login-form-container {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    padding: 16px 28px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero {
+        padding: 32px 24px;
+        min-height: 40vh;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+}

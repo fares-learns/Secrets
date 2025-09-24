@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Secrets</title>
+        <style>
+            /* Additional styles for this specific page */
+            .login-form-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                color: var(--muted);
+                font-weight: var(--fw-semibold);
+            }
+
+            .submit-btn {
+                width: 100%;
+                margin-top: 8px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <div class="container">
+                <div class="hero center">
+                    <h1>Do you want to know some of the secrets</h1>
+                    <p class="lead">If the answer is yes then you should provide the correct name and password below</p>
+
+                    <div class="card login-form-container">
+                        <form action="/check" method="post">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required class="input" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" required class="input" />
+                            </div>
+
+                            <input type="submit" value="Submit" class="btn btn-primary submit-btn" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <span class="small">Enjoy your day. Made by Fares</span>
+        </footer>
+    </body>
+
+</html>
